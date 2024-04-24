@@ -1,4 +1,6 @@
+using Gallery.Application.Interfaces.Persistence;
 using Gallery.Infrastructure.Persistence;
+using Gallery.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,6 +15,7 @@ public static class DependencyInjection
 
         services.AddDbContext<GalleryDbContext>(options => 
             options.UseMySQL(configuration.GetConnectionString(GALLERY_CONNECTION)!));
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }
