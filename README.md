@@ -1,0 +1,1 @@
+**Gallery** is a web API, implemented using .NET 8 and ASP.NET Core. It's been designed for users to store images within albums and manage them.
