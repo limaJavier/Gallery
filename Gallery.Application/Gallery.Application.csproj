@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Gallery.Domain\Gallery.Domain.csproj" />
-    <ProjectReference Include="..\Gallery.Infrastructure\Gallery.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>
