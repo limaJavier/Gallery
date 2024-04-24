@@ -1,6 +1,6 @@
 using FastEndpoints;
-using Gallery.Application.Handlers.Authentication.Commands.Common;
 using Gallery.Application.Handlers.Authentication.Commands.Register;
+using Gallery.Application.Handlers.Authentication.Common;
 using MediatR;
 namespace Gallery.API.Features.Sample;
 

@@ -1,4 +1,4 @@
-namespace Gallery.Application.Handlers.Authentication.Commands.Common;
+namespace Gallery.Application.Handlers.Authentication.Common;
 
 public record AuthenticationResponse(
     string Email,

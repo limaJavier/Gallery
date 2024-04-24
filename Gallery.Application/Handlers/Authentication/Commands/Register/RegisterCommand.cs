@@ -1,4 +1,4 @@
-using Gallery.Application.Handlers.Authentication.Commands.Common;
+using Gallery.Application.Handlers.Authentication.Common;
 using MediatR;
 
 namespace Gallery.Application.Handlers.Authentication.Commands.Register;
