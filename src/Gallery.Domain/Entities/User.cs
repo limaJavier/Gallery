@@ -8,6 +8,8 @@ public class User
     public string LastName { get; set; } = null!;
     public string Email { get; set; } = null!;
     public string PasswordHash { get; set; } = null!;
+    public string VerificationToken { get; set; } = null!;
+    public bool Verified { get; set; }
 
     // Relational Properties
     public ICollection<Album> Albums { get; set; } = null!;
