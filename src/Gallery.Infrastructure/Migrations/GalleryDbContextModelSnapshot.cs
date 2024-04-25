@@ -88,6 +88,13 @@ namespace Gallery.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<string>("VerificationToken")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Verified")
+                        .HasColumnType("tinyint(1)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");

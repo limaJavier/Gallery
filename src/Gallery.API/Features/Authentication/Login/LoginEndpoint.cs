@@ -1,11 +1,9 @@
 using FastEndpoints;
-using Gallery.Application.Handlers.Authentication.Commands.Register;
-using Gallery.Application.Handlers.Authentication.Common;
 using Gallery.Application.Handlers.Authentication.Queries.Login;
 using MediatR;
 namespace Gallery.API.Features.Sample;
 
-public class LoginEndpoint(ISender _mediator) : Endpoint<LoginCommand, AuthenticationResponse>
+public class LoginEndpoint(ISender _mediator) : Endpoint<LoginCommand, LoginResponse>
 {
     public override void Configure()
     {

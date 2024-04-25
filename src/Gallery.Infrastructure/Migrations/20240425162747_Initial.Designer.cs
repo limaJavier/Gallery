@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Gallery.Infrastructure.Migrations
 {
     [DbContext(typeof(GalleryDbContext))]
-    [Migration("20240424140538_Initial")]
+    [Migration("20240425162747_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -90,6 +90,13 @@ namespace Gallery.Infrastructure.Migrations
                     b.Property<string>("PasswordHash")
                         .IsRequired()
                         .HasColumnType("longtext");
+
+                    b.Property<string>("VerificationToken")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("Verified")
+                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("Id");
 

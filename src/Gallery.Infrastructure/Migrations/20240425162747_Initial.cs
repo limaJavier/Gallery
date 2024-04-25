@@ -22,7 +22,9 @@ namespace Gallery.Infrastructure.Migrations
                     Name = table.Column<string>(type: "longtext", nullable: false),
                     LastName = table.Column<string>(type: "longtext", nullable: false),
                     Email = table.Column<string>(type: "longtext", nullable: false),
-                    PasswordHash = table.Column<string>(type: "longtext", nullable: false)
+                    PasswordHash = table.Column<string>(type: "longtext", nullable: false),
+                    VerificationToken = table.Column<string>(type: "longtext", nullable: false),
+                    Verified = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
