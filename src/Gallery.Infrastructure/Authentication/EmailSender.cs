@@ -15,7 +15,7 @@ public class EmailSender : IEmailSender
     {
         _smtpSettings = smtpOptions.Value;
     }
-    public void SendEmail(EmailRequest request)
+    public async Task SendEmail(EmailRequest request)
     {
         var email = new MimeMessage();
         email.From.Add(MailboxAddress.Parse(_smtpSettings.From));
@@ -27,9 +27,11 @@ public class EmailSender : IEmailSender
         try
         {
             using var smtp = new SmtpClient();
-            smtp.Connect(_smtpSettings.Server, _smtpSettings.Port, SecureSocketOptions.StartTls);
-            smtp.Authenticate(_smtpSettings.From, _smtpSettings.Password);
-            smtp.Send(email);
+            await smtp.ConnectAsync(_smtpSettings.Server, _smtpSettings.Port, SecureSocketOptions.StartTls);
+            await smtp.AuthenticateAsync(_smtpSettings.From, _smtpSettings.Password);
+            await smtp.SendAsync(email);
+            await smtp.DisconnectAsync(true);
+            
         }
         catch
         {

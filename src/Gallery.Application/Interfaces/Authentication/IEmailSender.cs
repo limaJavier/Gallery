@@ -4,5 +4,5 @@ namespace Gallery.Application.Interfaces.Authentication;
 
 public interface IEmailSender
 {
-    void SendEmail(EmailRequest request);
+    Task SendEmail(EmailRequest request);
 }

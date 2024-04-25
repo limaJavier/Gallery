@@ -7,7 +7,7 @@ using Gallery.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 
-public class RegisterCommandHandler(IUnitOfWork _unitOfWork, IPasswordHasher<User> _passwordHasher, ITokenGenerator _tokenGenerator,IEmailSender _emailSender) : IRequestHandler<RegisterCommand, AuthenticationResponse>
+public class RegisterCommandHandler(IUnitOfWork _unitOfWork, IPasswordHasher<User> _passwordHasher, ITokenGenerator _tokenGenerator, IEmailSender _emailSender) : IRequestHandler<RegisterCommand, AuthenticationResponse>
 {
     public async Task<AuthenticationResponse> Handle(RegisterCommand command, CancellationToken cancellationToken)
     {
@@ -34,9 +34,9 @@ public class RegisterCommandHandler(IUnitOfWork _unitOfWork, IPasswordHasher<Use
         await _unitOfWork.SaveAsync();
 
         var email = new EmailRequest(["ima.nolan@ethereal.email"], "Gallery Verification Email", @$"
-        Thanks for choosing Gallery as your images host. Please click the following link to access our platform: <a href='http://localhost:5045/verify?email={command.Email}&verificationToken={user.VerificationToken}' target='_blank'>Access Gallery</a>
+        Thanks for choosing Gallery as your images host. Please click the following link to access our platform: <a href='http://localhost:5045/verify?email={command.Email}&verificationToken={user.VerificationToken}' target='_blank'>Gallery Verify</a>
         ");
-        _emailSender.SendEmail(email);
+        await _emailSender.SendEmail(email);
 
         var response = new AuthenticationResponse(user.Email);
 
